@@ -1,12 +1,30 @@
-import { promises as fs } from "fs";
+"use server"
+
+import QuestionsClientComponent from "./questions-client";
+import { promises as fs } from 'fs';
 
 export default async function QuestionsComponent() {
-  const questionDB = await fs.readFile(process.cwd() + "/app/(db)/questions.json", "utf8");
-  const data = JSON.parse(questionDB);
+    const questionsDB = await fs.readFile(process.cwd() + '/app/(db)/questions.json', 'utf8');
+    const data = JSON.parse(questionsDB);
 
-  return (
-    <div>
-      <div className="text-center text-xl">{data[0].question}</div>
-    </div>
-  );
+
+
+
+    if (!data ) {
+        return (
+            <>
+            Loading Data...
+            </>
+        )
+            
+    }
+
+    // console.log(`Question: ` + data[selected_question].question)
+    // console.log(`Answers: ` + data[selected_question].answers)
+    // console.log(`Correct Answer: ` + data[selected_question].correct_answer)
+
+    return (
+        <QuestionsClientComponent data={data}></QuestionsClientComponent>
+    )
+    
 }
