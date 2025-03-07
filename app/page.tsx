@@ -25,13 +25,13 @@ export default function MainPage() {
 
       <div className="place-self-center">
         <a href="/quiz">
-          <Button variant="outline" className="block mt-20 w-xl">
+          <Button variant="outline" className="block mt-20 place-self-center w-xs sm:w-xl">
             Παίξε!
           </Button>
         </a>
         <Dialog>
           <DialogTrigger className='mt-10' asChild>
-            <Button variant="outline" className="block w-xl">
+            <Button variant="outline" className="block place-self-center w-xs sm:w-xl">
               Κανόνες
             </Button>
           </DialogTrigger>
@@ -39,11 +39,9 @@ export default function MainPage() {
             <DialogHeader>
               <DialogTitle>Κανόνες</DialogTitle>
               <DialogDescription>
-                <ul>
-                  <li>- Για να απαντήσεις μια ερώτηση έχεις 20 δευτερόλεπτα</li>
-                  <li>- Αν απαντήσεις λάθος ή ξεμείνεις από χρόνο, χάνεις</li>
-                  <li>- Το παιχνίδι λήγει όταν έχεις απαντήσει 10 ερωτήσεις σωστά</li>
-                </ul>
+                  - Για να απαντήσεις μια ερώτηση έχεις 20 δευτερόλεπτα<br></br>
+                  - Αν απαντήσεις λάθος ή ξεμείνεις από χρόνο, χάνεις<br></br>
+                  - Το παιχνίδι λήγει όταν έχεις απαντήσει 10 ερωτήσεις σωστά<br></br>
               </DialogDescription>
             </DialogHeader>
           </DialogContent>

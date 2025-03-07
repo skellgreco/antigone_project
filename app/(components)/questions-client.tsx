@@ -46,8 +46,6 @@ export default function QuestionsClientComponent({ data }) {
 
   // Handler for when the user answers a question
   function handleClick(answer) {
-    
-
     // Event for correct answer
     if (answer == right_answer) {
       if (highscore < 10) {
@@ -55,8 +53,8 @@ export default function QuestionsClientComponent({ data }) {
         setSeconds(process.env.NEXT_PUBLIC_MAX_SECONDS);
         setCurrentQuestion(Math.floor(Math.random() * 18));
       } else {
-        setPlayStatus('won')
-        setSeconds(2931827473219874)
+        setPlayStatus("won");
+        setSeconds(2931827473219874);
       }
 
       // Event for wrong answer
@@ -70,14 +68,14 @@ export default function QuestionsClientComponent({ data }) {
     setHighScore(0);
     setPlayStatus("playing");
     setSeconds(process.env.NEXT_PUBLIC_MAX_SECONDS);
-    setCurrentQuestion(3)
+    setCurrentQuestion(3);
   }
 
   // HTML Output for status "playing"
   if (playStatus == "playing") {
     return (
       <>
-        <Card className="mx-15 mt-20">
+        <Card className="mx-5 sm:mx-15 mt-20">
           <CardHeader>
             <CardTitle className="text-center text-xl">{question}</CardTitle>
             <CardDescription className="text-center">
@@ -115,7 +113,7 @@ export default function QuestionsClientComponent({ data }) {
   } else if (playStatus == "lost") {
     return (
       <>
-        <Card className="mx-15 mt-20 text-center">
+        <Card className="mx-5 sm:mx-15 mt-20 text-center">
           <CardContent className="justify-items-center mt-5 text-3xl font-bold text-red-500">
             Έχασες...
           </CardContent>
@@ -128,7 +126,7 @@ export default function QuestionsClientComponent({ data }) {
               Πάιξε Ξανά
             </Button>
             <a href="/">
-              <Button variant="outline" className="ml-5">
+              <Button variant="outline" className="mt-3 sm:mt-0 sm:ml-5">
                 Πήγαινε στην αρχική σελίδα
               </Button>
             </a>
@@ -139,7 +137,7 @@ export default function QuestionsClientComponent({ data }) {
   } else if (playStatus == "tutorial") {
     return (
       <>
-        <Card className="mx-15 mt-20 text-center">
+        <Card className="mx-5 sm:mx-15 mt-20 text-center">
           <CardContent className="justify-items-center mt-5 text-3xl font-bold">
             O Κρέοντας θέλει να σκοτώσει την Αντιγόνη!
           </CardContent>
@@ -171,7 +169,7 @@ export default function QuestionsClientComponent({ data }) {
               Πάιξε Ξανά
             </Button>
             <a href="/">
-              <Button variant="outline" className="ml-5">
+              <Button variant="outline" className="mt-3 sm:mt-0 sm:ml-5">
                 Πήγαινε στην αρχική σελίδα
               </Button>
             </a>
