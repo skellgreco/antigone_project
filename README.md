@@ -1,36 +1,20 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🗽 Open Source School Project for Antigone's Tragedy
+This is an open source school project regarding Antigone's Tragedy. It's goal is to learn about the tragedy in an entertaining way
+*Note: The Project is written in Greek. Any translation would be appreciated!
 
-## Getting Started
+![image](https://github.com/user-attachments/assets/627f5fb5-4eeb-4389-b755-d0cf0ecbb286)
+![image](https://github.com/user-attachments/assets/34496dfa-63fa-4c40-89d0-2b0cf5797872)
+![image](https://github.com/user-attachments/assets/51724285-27cc-4dc7-ac7b-0872b7c041c4)
 
-First, run the development server:
+## 👷‍♂️ How to setup
+Run the following:
+`npm i`
+`npm run dev`
+First, make sure to make an .env file. The format can be found in `example_env.txt`. Then, the project should run on port `3000`
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🐬 Technology Used:
+- Next.JS
+- Tailwind.CSS
+- ShadCN/UI
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 💚 You are free to use my project for non-commercial use 
