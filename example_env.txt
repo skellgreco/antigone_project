@@ -1,0 +1,4 @@
+CREATOR=Replace with your Name
+GRADE=Replace with your grade
+SCHOOL=Replace with your School's Name
+NEXT_PUBLIC_MAX_SECONDS=Replace with the number of seconds that the player has to answer a question

@@ -10,20 +10,55 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ArrowRight } from "lucide-react";
 
 // Main Function
 export default function QuestionsClientComponent({ data }) {
+
   // States
   const [highscore, setHighScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(4);
-  const [seconds, setSeconds] =
-    useState(1923812778127837891278939783129783978129783978912783);
+  const [seconds, setSeconds] = useState(1923812778127837891278939783129783978129783978912783);
   const [playStatus, setPlayStatus] = useState("tutorial");
+  const [usedQuestions, setUsedQuestions] = useState([]);
 
+  // Event when the player loses
+  function loseFunction() {
+    setPlayStatus("lost");
+    setSeconds(812374232712823487);
+    setUsedQuestions([]);
+  }
+
+  // Event when the player wins
+  function wonFunction() {
+    setPlayStatus("won");
+    setSeconds(812374232712823487);
+    setUsedQuestions([]);
+  }
+
+  // Event when the player answers a correct question
+  function nextQuestionFunction() {
+    setUsedQuestions([...usedQuestions, currentQuestion]);
+    console.log(usedQuestions);
+    setHighScore(highscore + 1);
+    setSeconds(process.env.NEXT_PUBLIC_MAX_SECONDS);
+    let NextQuestion = Math.floor(Math.random() * 23);
+    while (
+      usedQuestions.includes(NextQuestion) ||
+      NextQuestion == currentQuestion
+    ) {
+      console.log("retrying");
+      NextQuestion = Math.floor(Math.random() * 23);
+
+      setCurrentQuestion(NextQuestion);
+    }
+    setCurrentQuestion(NextQuestion);
+    console.log(NextQuestion, currentQuestion);
+  }
+
+  // Timer
   useEffect(() => {
     if (seconds > 0) {
       const timer = setInterval(() => {
@@ -33,8 +68,7 @@ export default function QuestionsClientComponent({ data }) {
       return () => clearInterval(timer);
     } else {
       if (playStatus == "playing") {
-        setPlayStatus("lost");
-        setSeconds(812374232712823487);
+        loseFunction();
       }
     }
   }, [seconds]);
@@ -49,21 +83,18 @@ export default function QuestionsClientComponent({ data }) {
     // Event for correct answer
     if (answer == right_answer) {
       if (highscore < 10) {
-        setHighScore(highscore + 1);
-        setSeconds(process.env.NEXT_PUBLIC_MAX_SECONDS);
-        setCurrentQuestion(Math.floor(Math.random() * 18));
+        nextQuestionFunction();
       } else {
-        setPlayStatus("won");
-        setSeconds(2931827473219874);
+        wonFunction();
       }
 
       // Event for wrong answer
     } else {
-      setPlayStatus("lost");
-      setSeconds(812374232712823487);
+      loseFunction();
     }
   }
 
+  // Event when player passes the tutorial
   function startPlaying() {
     setHighScore(0);
     setPlayStatus("playing");
@@ -71,7 +102,7 @@ export default function QuestionsClientComponent({ data }) {
     setCurrentQuestion(3);
   }
 
-  // HTML Output for status "playing"
+  // HTML Output
   if (playStatus == "playing") {
     return (
       <>
