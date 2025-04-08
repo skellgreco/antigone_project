@@ -8,6 +8,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { CREATOR, GRADE, SCHOOL } from "./(db)/config";
+
+export const dynamic = 'force-static';
 
 export default function MainPage() {
   return (
@@ -24,7 +27,7 @@ export default function MainPage() {
       </div>
 
       <div className="place-self-center">
-        <a href="/quiz">
+        <a href="/quiz.html">
           <Button variant="outline" className="block mt-20 place-self-center w-xs sm:w-xl">
             Παίξε!
           </Button>
@@ -48,11 +51,11 @@ export default function MainPage() {
         </Dialog>
 
         <div className="alegreya text-lg text-center mt-15 mx-20 text-slate-300">
-          {process.env.CREATOR}
+          {CREATOR}
           <br></br>
-          {process.env.GRADE}
+          {GRADE}
           <br></br>
-          {process.env.SCHOOL}
+          {SCHOOL}
         </div>
       </div>
     </>

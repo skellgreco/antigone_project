@@ -1,13 +1,13 @@
-"use server"
 
 import QuestionsClientComponent from "./questions-client";
 import { promises as fs } from 'fs';
+import { questionsDB } from "../(db)/questions";
 
   
 
 export default async function QuestionsComponent() {
-    const questionsDB = await fs.readFile(process.cwd() + '/app/(db)/questions.json', 'utf8');
-    const data = JSON.parse(questionsDB);
+    // const questionsDB = await fs.readFile(process.cwd() + '/app/(db)/questions.json', 'utf8');
+    const data = questionsDB
 
 
 

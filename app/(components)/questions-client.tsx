@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { ArrowRight } from "lucide-react";
+import { MAX_SECONDS } from "../(db)/config";
 
 // Main Function
 export default function QuestionsClientComponent({ data }) {
@@ -20,7 +21,7 @@ export default function QuestionsClientComponent({ data }) {
   // States
   const [highscore, setHighScore] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(4);
-  const [seconds, setSeconds] = useState(1923812778127837891278939783129783978129783978912783);
+  const [seconds, setSeconds] = useState(812374232712823487);
   const [playStatus, setPlayStatus] = useState("tutorial");
   const [usedQuestions, setUsedQuestions] = useState([]);
 
@@ -43,7 +44,7 @@ export default function QuestionsClientComponent({ data }) {
     setUsedQuestions([...usedQuestions, currentQuestion]);
     console.log(usedQuestions);
     setHighScore(highscore + 1);
-    setSeconds(process.env.NEXT_PUBLIC_MAX_SECONDS);
+    setSeconds(MAX_SECONDS);
     let NextQuestion = Math.floor(Math.random() * 23);
     while (
       usedQuestions.includes(NextQuestion) ||
@@ -98,7 +99,7 @@ export default function QuestionsClientComponent({ data }) {
   function startPlaying() {
     setHighScore(0);
     setPlayStatus("playing");
-    setSeconds(process.env.NEXT_PUBLIC_MAX_SECONDS);
+    setSeconds(MAX_SECONDS);
     setCurrentQuestion(3);
   }
 
